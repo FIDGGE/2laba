@@ -3,22 +3,27 @@
 using namespace std;
 
 int main() {
-  double sigma = 0.074;
-  double gamma = 1.0;
-  double g = 981.0;
-  double U;
-  double d;
-  
-  cout << "Enter bubble diameter d (cm): ";
-  cin >> d;
-  
-  while (d > 0) {
-    U = sqrt((g * d) / 2 + (2 * g * sigma) / (gamma * d));
-    cout << "For d = " << d << " cm, velocity U = " << U << " cm/s" << endl;
+    double sigma, gamma, g, d, U;
     
-    cout << "Enter next diameter: ";
-    cin  >> d;
-  }
-  
-  return 0;
+    sigma = 0.074;
+    gamma = 1.0;
+    g = 981.0;
+    
+    
+    d = 1.0;
+    while (d <= 5.0) {
+        U = sqrt(g * d / 2 + 2 * g * sigma / (gamma * d));
+        cout << "Для d = " << d << " см, скорость U = " << U << " см/с" << endl;
+        d += 1.0;
+    }
+    
+    
+    d = 15.0;
+    do {
+        U = sqrt(g * d / 2 + 2 * g * sigma / (gamma * d));
+        cout << "Для d = " << d << " см, скорость U = " << U << " см/с" << endl;
+        d += 10.0;
+    } while (d <= 55.0);
+    
+    return 0;
 }
